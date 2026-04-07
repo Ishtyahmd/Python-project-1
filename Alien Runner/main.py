@@ -12,7 +12,7 @@ def point_display():
 def obstacle_movement(obstacle_list, frame_1, frame_2, real_time_score):
     if obstacle_list:
         for obstacle_box in obstacle_list:
-            obstacle_speed = 3 + (real_time_score // 10)
+            obstacle_speed = 6 + (real_time_score // 10)
             obstacle_box.left -= obstacle_speed
             
             if obstacle_box.bottom == 300:
@@ -125,7 +125,7 @@ how_to_start = font.render("Press space to start", False, (248, 222, 34))
 
 #Enemy spawn Timer system
 obstacle_spawn_timer = pygame.USEREVENT + 1
-pygame.time.set_timer(obstacle_spawn_timer, 1500)
+pygame.time.set_timer(obstacle_spawn_timer, 2500)
 
 enemy_1_animation_timer = pygame.USEREVENT + 2
 pygame.time.set_timer(enemy_1_animation_timer, 500)
@@ -164,7 +164,7 @@ while start:
         if events.type == obstacle_spawn_timer:
             if game_state:
                 if random.randint(0,1):
-                    obstacle_box_list.append(enemy_1.get_rect(bottomright = (random.randint(900, 1100),300)))
+                    obstacle_box_list.append(enemy_1.get_rect(bottomright = (random.randint(1100, 1400),300)))
                 else:
                     obstacle_box_list.append(enemy_2.get_rect(bottomright = (random.randint(900, 1100),210)))
 
